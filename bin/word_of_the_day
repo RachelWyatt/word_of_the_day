@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/word_of_the_day'
+
+WordOfTheDay::CLI.new.call
