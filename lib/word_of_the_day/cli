@@ -1,7 +1,0 @@
-class WordOfTheDay::CLI
-
-  def call
-    puts "Hi!"
-  end
-  
-end

@@ -2,4 +2,18 @@
 
 require './lib/word_of_the_day'
 
+
 WordOfTheDay::CLI.new.call
+
+
+#Welcome to Word Of The Day! The Word of the Day for #{current_date} is:
+
+#WOTD here
+#short def here
+
+#Type 1. to learn more about #{WOTD}, or 2. to see a list of words for the last ten days
+
+#1 => possible to take user to the Merriam-Webster definition page? WordThink is better to scrape but doesn't have as much detail
+
+#2 => list last 10 WotD; Enter number to learn the definition for the word, exit to exit
+

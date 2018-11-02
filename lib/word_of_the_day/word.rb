@@ -1,0 +1,3 @@
+class WordOfTheDay::Word 
+  
+end
