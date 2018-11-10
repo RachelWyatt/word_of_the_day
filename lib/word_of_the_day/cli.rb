@@ -2,7 +2,7 @@ class WordOfTheDay::CLI
 
   def call
     greeting
-    list_deals
+    list_words
     menu
     goodbye
   end
@@ -11,9 +11,9 @@ class WordOfTheDay::CLI
   puts "Welcome to Word Of The Day!"
   end
 
-  def list_deals
+  def list_words
     @words = WordOfTheDay::Word.word_list
-    @words
+    puts @words
   end
 
  def menu
@@ -22,10 +22,10 @@ class WordOfTheDay::CLI
       puts "Type the corresponding number to learn a word's definition, and exit to exit the CLI."
       input = gets.strip
 
-      if input.to_i == 1
-        puts "Definition for Word 1"
-      elsif input.to_i == 2
-        puts "Definition for Word 2"
+      if input.to_i > 0
+        puts @words[input.to_i-1]
+      elsif input == 'list'
+        list_words
       else puts "Not sure what you meant, please type the number of the word you want to learn more about, list words, or exit."
       end
     end
