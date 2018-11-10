@@ -2,17 +2,18 @@ class WordOfTheDay::CLI
 
   def call
     greeting
+    list_deals
     menu
     goodbye
   end
 
   def greeting
-  puts "Welcome to Word Of The Day! The Word of the Day for November 9th is: Voracious
-    Voracious adj. An eager approach to an activity; Wanting or devouring great quantities of something or somebody: 'She has a voracious appetite for life.'
-    1. Word 1
-    2. Word 2
-    3. Word 3"
+  puts "Welcome to Word Of The Day!"
+  end
 
+  def list_deals
+    @words = WordOfTheDay::Word.word_list
+    @words
   end
 
  def menu
