@@ -13,7 +13,9 @@ class WordOfTheDay::CLI
 
   def list_words
     @words = WordOfTheDay::Word.word_list
-    puts @words
+    @words.each.with_index(1) do |word, i|
+      puts "#{i}. #{word.name}"
+    end
   end
 
  def menu
@@ -23,7 +25,7 @@ class WordOfTheDay::CLI
       input = gets.strip
 
       if input.to_i > 0
-        puts @words[input.to_i-1]
+        puts @words[input.to_i-1].definition
       elsif input == 'list'
         list_words
       else puts "Not sure what you meant, please type the number of the word you want to learn more about, list words, or exit."
