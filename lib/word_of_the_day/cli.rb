@@ -13,8 +13,8 @@ class WordOfTheDay::CLI
 
   def list_words
     @words = WordOfTheDay::Word.word_list
-    @words.each.with_index(1) do |word, i|
-      puts "#{i}. #{word.name}"
+    @words.split.each.with_index(1) do |word, i|
+      puts "#{i}. #{word}"
     end
   end
 
