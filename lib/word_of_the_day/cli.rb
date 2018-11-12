@@ -12,9 +12,9 @@ class WordOfTheDay::CLI
   end
 
   def list_words
-    @words = WordOfTheDay::Word.create_word_list
+    @words = WordOfTheDay::Scraper.scrape_words
     @words.each.with_index(1) do |word, i|
-      puts "#{i-1}. #{word}"
+      puts "#{i}. #{word}"
     end
   end
 
