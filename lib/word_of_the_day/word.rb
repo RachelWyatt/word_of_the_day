@@ -11,9 +11,12 @@ def initialize (name = "test")
 end
 
 def self.create_word_list
-  WordOfTheDay::Scraper.scrape_words.each do |word_string|
-    word = self.new("test")
+  WordOfTheDay::Scraper.scrape_words.each do |entry|
+    entry = self.new
+    entry.name = "Test"
+    @@all << entry
   end
+  @@all
 end
 
 def self.all
