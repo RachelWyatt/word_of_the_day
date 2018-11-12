@@ -12,8 +12,8 @@ class WordOfTheDay::CLI
   end
 
   def list_words
-    @words = WordOfTheDay::Word.word_list
-    @words.split.each.with_index(1) do |word, i|
+    @words = WordOfTheDay::Scraper.create_word_list
+    @words.each.with_index(1) do |word, i|
       puts "#{i}. #{word}"
     end
   end
