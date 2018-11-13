@@ -16,7 +16,6 @@ def self.create_word_list
     entry.name = word.split.first
     entry.type = "I'm a noun!"
     entry.definition = "test"
-    @@all << entry
   end
   @@all
 end

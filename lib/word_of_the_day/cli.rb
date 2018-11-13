@@ -13,6 +13,7 @@ class WordOfTheDay::CLI
 
   def list_words
     @words = WordOfTheDay::Word.create_word_list
+
     @words.each.with_index(1) do |entry, i|
       puts "#{i}. #{entry.name}"
     end
