@@ -11,11 +11,11 @@ def initialize (name = "test")
 end
 
 def self.create_word_list
-  WordOfTheDay::Scraper.scrape_words.each do |entry|
+  WordOfTheDay::Scraper.scrape_words.each do |word|
     entry = self.new
-    entry.name = "Test"
+    entry.name = word.split.first
     entry.type = "I'm a noun!"
-    entry.definition = "Definition here"
+    entry.definition = "test"
     @@all << entry
   end
   @@all
