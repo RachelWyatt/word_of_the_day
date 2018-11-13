@@ -26,7 +26,8 @@ class WordOfTheDay::CLI
       input = gets.strip
 
       if input.to_i > 0
-        puts @words[input.to_i-1].definition
+        word = @words[input.to_i-1]
+        puts "#{word.definition}"
       elsif input == 'list'
         list_words
       elsif input == "exit"
