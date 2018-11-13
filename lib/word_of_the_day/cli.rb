@@ -20,7 +20,7 @@ class WordOfTheDay::CLI
 
  def menu
     input = nil
-    while input != "exit"
+    until input == "exit"
       puts "Type the corresponding number to learn a word's definition, list to see the lsit of words and exit to exit the CLI."
       input = gets.strip
 
@@ -28,7 +28,8 @@ class WordOfTheDay::CLI
         puts @words[input.to_i-1].definition
       elsif input == 'list'
         list_words
-      else puts "Not sure what you meant, please type the number of the word you want to learn more about, list words, or exit."
+      elsif input == "exit"
+      else puts "Not sure what you meant."
       end
     end
   end
