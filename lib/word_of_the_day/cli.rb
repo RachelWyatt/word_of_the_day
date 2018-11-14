@@ -27,7 +27,7 @@ class WordOfTheDay::CLI
 
       if input.to_i > 0 && input.to_i < 13
         word = @words[input.to_i-1]
-        puts "#{word.type}. #{word.definition}"
+        puts "#{word.type} #{word.definition}"
       elsif input == 'list'
         list_words
       elsif input == "exit"
