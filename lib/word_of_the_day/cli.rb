@@ -28,11 +28,13 @@ class WordOfTheDay::CLI
       if input.to_i > 0 && input.to_i < 13
         word = @words[input.to_i-1]
         puts "#{word.name}"
-        puts "#{word.type}" 
+        puts "#{word.type}"
         puts "#{word.definition}"
         puts "---------------"
       elsif input == 'list'
-        list_words
+        @words.each.with_index(1) do |entry, i|
+          puts "#{i}. #{entry.name}"
+        end
       elsif input == "exit"
       else puts "Not sure what you meant."
         "---------------"
