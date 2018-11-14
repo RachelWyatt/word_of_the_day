@@ -16,6 +16,7 @@ def self.create_word_list
     split_word = word.split
     entry.name = word.match(/[A-Z].*\b\s{2}/)
     entry.definition = split_word[-1]
+    entry.type = word.match(/\s{2}[a-z].{0,3}[.]\s/)
   end
   @@all
 end

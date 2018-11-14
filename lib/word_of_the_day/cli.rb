@@ -22,12 +22,12 @@ class WordOfTheDay::CLI
  def menu
     input = nil
     until input == "exit"
-      puts "Type the corresponding number to learn a word's definition, list to see the lsit of words and exit to exit the CLI."
+      puts "Type the corresponding number to learn more about a word, list to see the lsit of words and exit to exit the CLI."
       input = gets.strip
 
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < 13
         word = @words[input.to_i-1]
-        puts "#{word.definition}"
+        puts "#{word.type}. #{word.definition}"
       elsif input == 'list'
         list_words
       elsif input == "exit"
