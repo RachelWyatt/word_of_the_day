@@ -1,7 +1,4 @@
-#require 'pry'
-
 class WordOfTheDay::Scraper
-  attr_writer :name
 
   def self.scrape_words
     @page = Nokogiri::HTML(open("http://www.wordthink.com/"))
@@ -9,4 +6,5 @@ class WordOfTheDay::Scraper
     @word_array.shift
     @word_array
   end
+  
 end

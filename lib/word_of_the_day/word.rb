@@ -1,12 +1,10 @@
-require 'pry'
-
 class WordOfTheDay::Word
 
 attr_accessor :name, :type, :definition
 
 @@all = []
 
-def initialize (name = "test")
+def initialize
   @@all << self
 end
 
@@ -18,7 +16,7 @@ def self.create_word_list
     entry.definition = word.match(/\s[A-Z].+\z/)
     entry.type = word.match(/\s{2}[a-z].{0,3}[.]\s/)
   end
-  @@all
+  all
 end
 
 def self.all
