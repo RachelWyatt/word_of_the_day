@@ -8,13 +8,13 @@ class WordOfTheDay::CLI
   end
 
   def greeting
-  puts "Welcome to Word Of The Day!"
+    puts "Welcome to Word Of The Day!"
   end
 
   def list_words
-    @words = WordOfTheDay::Word.create_word_list
+    WordOfTheDay::Word.create_word_list
 
-    @words.each.with_index(1) do |entry, i|
+    WordOfTheDay::Word.all.each.with_index(1) do |entry, i|
       puts "#{i}. #{entry.name}"
     end
   end
@@ -23,16 +23,16 @@ class WordOfTheDay::CLI
     input = nil
     until input == "exit"
       puts "Type the corresponding number to learn more about a word, list to see the list of words and exit to exit the CLI."
-      input = gets.strip
+      input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i < 13
-        word = @words[input.to_i-1]
+        word = WordOfTheDay::Word.all[input.to_i-1]
         puts "#{word.name}"
         puts "#{word.type}"
         puts "#{word.definition}"
         puts "---------------"
       elsif input == 'list'
-        @words.each.with_index(1) do |entry, i|
+        WordOfTheDay::Word.all.each.with_index(1) do |entry, i|
           puts "#{i}. #{entry.name}"
         end
       elsif input == "exit"
@@ -41,8 +41,6 @@ class WordOfTheDay::CLI
       end
     end
   end
-
-
 
   def goodbye
     puts "Come back tomorrow to learn a new word!"

@@ -19,8 +19,9 @@ Or install it yourself as:
     $ gem install word_of_the_day
 
 ## Usage
-
+FILL THIS IN
 TODO: Write usage instructions here
+ruby ./bin/word_of_the_day
 
 ## Development
 
