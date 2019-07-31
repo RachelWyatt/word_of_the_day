@@ -12,9 +12,8 @@ class WordOfTheDay::CLI
   end
 
   def list_words
-    WordOfTheDay::Word.create_word_list
-
-    WordOfTheDay::Word.all.each.with_index(1) do |entry, i|
+    @words = WordOfTheDay::Word.create_word_list[0,7]
+    @words.each.with_index(1) do |entry, i|
       puts "#{i}. #{entry.name}"
     end
   end
@@ -25,14 +24,15 @@ class WordOfTheDay::CLI
       puts "Type the corresponding number to learn more about a word, list to see the list of words and exit to exit the CLI."
       input = gets.strip.downcase
 
-      if input.to_i > 0 && input.to_i < 13
+      if input.to_i > 0 && input.to_i < 7
         word = WordOfTheDay::Word.all[input.to_i-1]
         puts "#{word.name}"
         puts "#{word.type}"
         puts "#{word.definition}"
         puts "---------------"
       elsif input == 'list'
-        WordOfTheDay::Word.all.each.with_index(1) do |entry, i|
+        @words = WordOfTheDay::Word.create_word_list[0,7]
+        @words.each.with_index(1) do |entry, i|
           puts "#{i}. #{entry.name}"
         end
       elsif input == "exit"
